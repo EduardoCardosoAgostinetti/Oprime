@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
     setState(() => isLoading = true);
     final token = await getToken();
     final res = await http.get(
-      Uri.parse('http://192.168.0.101:3000/posts/feed'),
+      Uri.parse('http://192.168.7.17:3000/posts/feed'),
       headers: {HttpHeaders.authorizationHeader: 'Bearer $token'},
     );
 
@@ -121,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                 final token = await getToken();
                 final request = http.MultipartRequest(
                   'POST',
-                  Uri.parse('http://192.168.0.101:3000/posts/post'),
+                  Uri.parse('http://192.168.7.17:3000/posts/post'),
                 );
 
                 request.headers['Authorization'] = 'Bearer $token';
@@ -169,7 +169,7 @@ class _HomePageState extends State<HomePage> {
   Widget buildPostCard(post) {
     final user = post['User'];
     final imageUrl = post['imageUrl'] != null
-        ? 'http://192.168.0.101:3000${post['imageUrl']}'
+        ? 'http://192.168.7.17:3000${post['imageUrl']}'
         : null;
     final createdAt = DateTime.tryParse(post['createdAt'] ?? '');
     final formattedDate = createdAt != null
@@ -187,7 +187,7 @@ class _HomePageState extends State<HomePage> {
               backgroundColor: Colors.grey[200],
               child: ClipOval(
                 child: Image.network(
-                  'http://192.168.0.101:3000/uploads/profile/${user['id']}.jpeg?${DateTime.now().millisecondsSinceEpoch}',
+                  'http://192.168.7.17:3000/uploads/profile/${user['id']}.jpeg?${DateTime.now().millisecondsSinceEpoch}',
                   fit: BoxFit.cover,
                   width: 48,
                   height: 48,

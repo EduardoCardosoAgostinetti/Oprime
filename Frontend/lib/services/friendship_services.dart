@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-final String baseUrl = 'http://192.168.0.101:3000';
+final String baseUrl = 'http://192.168.7.17:3000';
 
 class FriendshipService {
   Future<Map<String, dynamic>> searchByNickname(String nickname) async {

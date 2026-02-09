@@ -20,7 +20,7 @@ class WebSocketService {
   void connect(String token) {
     if (_isConnected) return;
 
-    final uri = Uri.parse('ws://192.168.0.101:8080');
+    final uri = Uri.parse('ws://192.168.7.17:8080');
     _channel = WebSocketChannel.connect(uri);
     _isConnected = true;
 

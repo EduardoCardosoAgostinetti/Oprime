@@ -35,7 +35,7 @@ class _MenuPageState extends State<MenuPage> with RouteAware {
   String _nickname = 'User';
   String _email = 'no@email.com';
 
-  final String baseUrl = 'http://192.168.0.101:3000/uploads/profile';
+  final String baseUrl = 'http://192.168.7.17:3000/uploads/profile';
 
   @override
   void initState() {
@@ -95,7 +95,7 @@ class _MenuPageState extends State<MenuPage> with RouteAware {
     if (picked == null) return;
 
     final uri = Uri.parse(
-      'http://192.168.0.101:3000/uploads/uploadProfilePhoto',
+      'http://192.168.7.17:3000/uploads/uploadProfilePhoto',
     );
     final request = http.MultipartRequest('POST', uri);
 
@@ -134,7 +134,7 @@ class _MenuPageState extends State<MenuPage> with RouteAware {
           (decoded['success'] == true || decoded['success'] == null)) {
         // Sucesso no upload
         final imageUrl =
-            'http://192.168.0.101:3000${decoded['data']['imageUrl']}';
+            'http://192.168.7.17:3000${decoded['data']['imageUrl']}';
 
         final prefs = await SharedPreferences.getInstance();
         await prefs.setString('uploaded_avatar_url_$userId', imageUrl);

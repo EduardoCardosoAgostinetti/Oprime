@@ -177,7 +177,7 @@ class _SearchFriendsPageState extends State<SearchFriendsPage> {
                           backgroundColor: Colors.grey[200],
                           child: ClipOval(
                             child: Image.network(
-                              'http://192.168.0.101:3000/uploads/profile/${user['id']}.jpeg',
+                              'http://192.168.7.17:3000/uploads/profile/${user['id']}.jpeg',
                               fit: BoxFit.cover,
                               width: 48,
                               height: 48,

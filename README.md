@@ -1,111 +1,151 @@
+# 📱 Social MVP – Social Network with Flutter & Node.js
 
-# 📱 Social MVP – Rede Social com Flutter & Node.js
-
-> Projeto MVP de uma rede social com funcionalidades de autenticação, amizades, feed, chat em tempo real e muito mais.
-
----
-
-## 📌 Sobre o Projeto
-
-Este é um projeto MVP (Produto Mínimo Viável) de uma rede social, desenvolvido com **Flutter** no frontend e **Node.js** no backend. Ele possui funcionalidades básicas de redes sociais, como login, registro, gerenciamento de perfil, amizade, chat privado via WebSocket, feed de postagens com imagem e presença online.
+> MVP project of a social network featuring authentication, friendships, feed, real-time chat, and online presence.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 📌 About the Project
+
+This project is a **Minimum Viable Product (MVP)** of a social network developed with **Flutter** on the frontend and **Node.js** on the backend.
+
+It implements core social media features such as user authentication, profile management, friendships, private real-time chat via WebSockets, image-based posts, and online/offline presence tracking.
+
+The main goal of this project is **academic learning and hands-on experience** with fullstack development, real-time communication, and modern application architecture.
+
+---
+
+## 🚀 Technologies Used
 
 ### 📱 Frontend (Flutter)
 
 - Flutter SDK ^3.8.1
-- `http` – Requisições REST
-- `shared_preferences` – Armazenamento local
-- `provider` – Gerenciamento de estado
-- `go_router` – Navegação declarativa
-- `web_socket_channel` – Comunicação em tempo real
-- `image_picker` – Seleção de imagens
-- `jwt_decoder` – Decodificação de token JWT
-- Internacionalização (`flutter_localizations`, `flutter_gen`)
+- `http` – REST API requests
+- `shared_preferences` – Local storage
+- `provider` – State management
+- `go_router` – Declarative navigation
+- `web_socket_channel` – Real-time communication
+- `image_picker` – Image selection
+- `jwt_decoder` – JWT token decoding
+- Internationalization (`flutter_localizations`, `flutter_gen`)
 - `http_parser`, `path`, `cupertino_icons`
 
 ### 🌐 Backend (Node.js + Express)
 
-- `express` – Framework web
-- `sequelize` + `pg` – ORM com PostgreSQL
-- `jsonwebtoken` – Autenticação JWT
-- `bcryptjs` – Criptografia de senhas
-- `multer` – Upload de arquivos
-- `sharp` – Redimensionamento de imagem
-- `nodemailer` – E-mail para recuperação de senha
-- `ws` – WebSocket nativo
+- `express` – Web framework
+- `sequelize` + `pg` – ORM with PostgreSQL
+- `jsonwebtoken` – JWT authentication
+- `bcryptjs` – Password hashing
+- `multer` – File uploads
+- `sharp` – Image resizing and optimization
+- `nodemailer` – Password recovery emails
+- `ws` – Native WebSocket server
 - `dotenv`, `cors`, `uuid`, `express-validator`
 
 ---
 
-## 🧪 Funcionalidades
+## 🧪 Features
 
-### Autenticação e Usuário
-- Registro de usuário
-- Login com JWT
-- Alteração de nickname, username e senha
-- Upload de foto de perfil
-- Recuperação de senha via código
+### Authentication & User Management
+- User registration
+- Login with JWT authentication
+- Update nickname, username, and password
+- Profile photo upload
+- Password recovery via verification code
 
-### Amizades
-- Procurar usuários por nickname
-- Enviar, aceitar ou rejeitar solicitações de amizade
-- Listar amigos adicionados e solicitações pendentes
+### Friendships
+- Search users by nickname
+- Send, accept, or reject friend requests
+- List friends and pending requests
 
 ### Feed
-- Criar postagens com imagem
-- Visualizar feed de postagens
+- Create image-based posts
+- View posts feed
 
-### Chat Privado
-- Chat privado entre amigos
-- Envio e recebimento de mensagens em tempo real via WebSocket
+### Private Chat
+- One-to-one private chat between friends
+- Real-time message exchange using WebSockets
 
-### Presença Online
-- Atualização de status online/offline em tempo real
+### Online Presence
+- Real-time online/offline status updates
 
----
-
-## 📂 Estrutura de Rotas Backend (Node.js)
-
-| Recurso        | Método | Rota                                         | Descrição                                     |
-|----------------|--------|----------------------------------------------|-----------------------------------------------|
-| Auth           | POST   | `/users/register`                            | Registro de novo usuário                      |
-|                | POST   | `/users/login`                               | Login do usuário                              |
-|                | PUT    | `/users/nickname`                            | Alterar nickname                              |
-|                | PUT    | `/users/username`                            | Alterar username                              |
-|                | PUT    | `/users/password`                            | Alterar senha                                 |
-| Upload         | POST   | `/uploads/uploadProfilePhoto`                | Upload de foto de perfil                      |
-| Amizades       | GET    | `/friendships/getFriends`                    | Listar amigos                                 |
-|                | GET    | `/friendships/searchByNickname/:nickname`    | Buscar por nickname                           |
-|                | POST   | `/friendships/sendFriendRequest`             | Enviar solicitação                            |
-|                | GET    | `/friendships/getPendingFriendRequests`      | Solicitações recebidas                        |
-|                | POST   | `/friendships/respondToFriendRequest`        | Aceitar ou recusar solicitação                |
-|                | GET    | `/friendships/getSentPendingFriendRequests`  | Solicitações enviadas                         |
-| Feed           | POST   | `/posts/post`                                | Criar postagem com imagem                     |
-|                | GET    | `/posts/feed`                                | Ver feed de postagens                         |
-| Chat           | GET    | `/chats/me`                                  | Listar chats do usuário                       |
-|                | GET    | `/chats/private/:friendId`                   | Criar ou acessar chat privado                 |
-|                | GET    | `/chats/:chatId/messages`                    | Ver mensagens do chat                         |
-|                | POST   | `/chats/:chatId/messages`                    | Enviar mensagem                               |
-| Código         | POST   | `/codes/request`                             | Solicitar código de recuperação               |
-|                | POST   | `/codes/verify`                              | Verificar código de recuperação               |
-|                | POST   | `/codes/resetPass`                           | Redefinir senha                               |
-| Presença       | PUT    | `/presence/updatePresence`                   | Atualizar status online/offline               |
+### Settings
+- Responsive layout
+- Language selection
+- Theme mode (dark or light)
+- Update profile information
+- Logout
 
 ---
 
-## ⚙️ Instalação e Execução
+## 📂 Backend Routes Structure
 
-### 1. Clone o repositório
+| Resource      | Method | Route                                       | Description                              |
+|---------------|--------|---------------------------------------------|------------------------------------------|
+| Auth          | POST   | `/users/register`                           | Register a new user                      |
+|               | POST   | `/users/login`                              | User login                               |
+|               | PUT    | `/users/nickname`                           | Update nickname                          |
+|               | PUT    | `/users/username`                           | Update username                          |
+|               | PUT    | `/users/password`                           | Update password                          |
+| Upload        | POST   | `/uploads/uploadProfilePhoto`               | Upload profile picture                  |
+| Friendships   | GET    | `/friendships/getFriends`                   | List friends                             |
+|               | GET    | `/friendships/searchByNickname/:nickname`   | Search users by nickname                |
+|               | POST   | `/friendships/sendFriendRequest`            | Send friend request                     |
+|               | GET    | `/friendships/getPendingFriendRequests`     | Received friend requests                |
+|               | POST   | `/friendships/respondToFriendRequest`       | Accept or reject request                |
+|               | GET    | `/friendships/getSentPendingFriendRequests` | Sent pending requests                   |
+| Feed          | POST   | `/posts/post`                               | Create post with image                  |
+|               | GET    | `/posts/feed`                               | Get posts feed                          |
+| Chat          | GET    | `/chats/me`                                 | List user chats                         |
+|               | GET    | `/chats/private/:friendId`                  | Create or access private chat           |
+|               | GET    | `/chats/:chatId/messages`                   | Get chat messages                      |
+|               | POST   | `/chats/:chatId/messages`                   | Send message                            |
+| Recovery      | POST   | `/codes/request`                            | Request password recovery code          |
+|               | POST   | `/codes/verify`                             | Verify recovery code                   |
+|               | POST   | `/codes/resetPass`                          | Reset password                         |
+| Presence      | PUT    | `/presence/updatePresence`                  | Update online/offline status            |
+
+---
+
+## ⚙️ Installation & Execution
+
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repo.git
-cd seu-repo
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
 ```
 
-### 2. Backend (Node.js)
+---
+
+### 2. Environment Variables
+
+Create a `.env` file:
+
+```bash
+# Database configuration
+DB_NAME=oprime
+DB_USER=postgres
+DB_PASS=root
+DB_HOST=localhost
+DB_PORT=5432
+
+# API configuration
+API_PORT=3000
+
+# JWT configuration
+JWT_SECRET=root
+
+# Email configuration
+EMAIL_SERVICE=gmail
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your@gmail.com
+SMTP_PASS=your_password
+```
+
+---
+
+### 3. Backend (Node.js)
 
 ```bash
 cd backend
@@ -113,7 +153,9 @@ npm install
 npm run dev
 ```
 
-### 3. Frontend (Flutter)
+---
+
+### 4. Frontend (Flutter)
 
 ```bash
 cd app
@@ -123,14 +165,14 @@ flutter run -d edge
 
 ---
 
-## 📡 Comunicação em Tempo Real
+## 📡 Real-Time Communication
 
-- O app utiliza `web_socket_channel` (Flutter) e `ws` (Node.js) para chat privado.
-- A presença online é sincronizada automaticamente com atualização via WebSocket.
+- Uses `web_socket_channel` (Flutter) and `ws` (Node.js) for private chat.
+- Online presence is synchronized in real time through WebSocket connections.
 
 ---
 
-## 📁 Estrutura Básica
+## 📁 Project Structure
 
 ```
 /app               # Flutter (Frontend)
@@ -150,9 +192,9 @@ flutter run -d edge
 
 ---
 
-## ✅ Testes Automatizados
+## ✅ Automated Tests
 
-Rodar todos os testes:
+Run backend tests:
 
 ```bash
 npm run tests
@@ -160,12 +202,14 @@ npm run tests
 
 ---
 
-## 🛡️ Autenticação
+## 🛡️ Authentication
 
-Todas as rotas protegidas utilizam middleware JWT. O token é armazenado no app Flutter usando `SharedPreferences` e enviado via `Authorization` nos headers.
+All protected routes use JWT middleware.  
+The token is stored in the Flutter app using `SharedPreferences` and sent via the `Authorization` header.
 
 ---
 
-## 📄 Licença
+## 📄 Author
 
-Este projeto é privado/MVP.
+**Eduardo Cardoso Agostinetti**  
+Developed for academic and learning purposes.

@@ -163,7 +163,7 @@ class _ChatsPageState extends State<ChatsPage> {
                     backgroundColor: Colors.grey[200],
                     child: ClipOval(
                       child: Image.network(
-                        'http://192.168.0.101:3000/uploads/profile/${chat['friendId']}.jpeg?${DateTime.now().millisecondsSinceEpoch}',
+                        'http://192.168.7.17:3000/uploads/profile/${chat['friendId']}.jpeg?${DateTime.now().millisecondsSinceEpoch}',
                         fit: BoxFit.cover,
                         width: 48,
                         height: 48,
